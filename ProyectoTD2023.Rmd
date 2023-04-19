@@ -1,0 +1,13 @@
+---
+title: "ProyectoTD2023"
+author: "Carlos Gómez"
+date: "2023-04-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Prueba
+Primer commit

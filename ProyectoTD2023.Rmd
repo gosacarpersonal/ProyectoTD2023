@@ -20,3 +20,35 @@ datos de la siguiente carpeta:
 
 El número de señales que se deben obtener al leer la cabecera digital
 son 10
+
+## Fichero 1: "cabecera_FicheroAnalogico.dat"
+
+LEYENDA CABECERA ANALOGICA:
+  
+  Siguiente orden:
+  
+  6 datos (uint8_t) con fecha: dia, mes, año, hora, min, seg
+
+1 datos (uint8_t) del ADC: resolucion (bits)
+
+3 datos (int16_t): vmaxADC(mv), vminADC(vm), Fmuestreo(Hz)
+
+```{r}
+# Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
+f1 <- file("./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/cabecera_FicheroAnalogico.dat", "rb")
+
+# Leemos el fichero 
+lect1.1 <- readBin(f1, "integer", n = 7, size = 1, signed = F)
+lect1.2 <- readBin(f1, "integer", n = 3, size = 2, signed = T)
+
+# Cerramos el fichero 
+close(f1)
+
+# Mostramos la información contenida en el fichero 
+print('Lectura 1 cabecera fichero Analógico: ')
+lect1.1
+
+print('Lectura 2 cabecera fichero Analógico: ')
+lect1.2
+
+```

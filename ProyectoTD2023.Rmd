@@ -75,3 +75,51 @@ close(f2)
 print(' Lectura cabecera fichero Digital: ')
 lect2
 ```
+
+## Fichero 3: "ficheroAnalogico.dat"
+
+LIBRERÍA NECESARIA: tidyverse
+
+```{r}
+# Importamos la librería encesaria:
+library(tidyverse)
+
+# Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
+f3 <- file("./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroAnalogico.dat", "rb")
+
+# Leemos el fichero
+lect3 <- readBin(f3, "integer", n = 1000, size = 2L, signed = T)
+
+# Cerramos el fichero 
+close(f3)
+
+# Mostramos la información contenida en el fichero 
+print(' Lectura fichero Analógico: ')
+lect3
+
+# Establecemos la frecuencia de muestreo del fichero
+Fm <- 1000
+
+# Calculamos el eje temporal para el gráfico
+t <- seq(0, (length(lect3)-1)/Fm, by = 1/Fm)
+
+# Graficamos los datos
+plot(t, lect3, type = "l", col = "black", xlab = "Tiempo (s)", ylab = "Voltaje (mV)")
+
+# Buscamos el voltaaje máximo
+vmax <- max(lect3)
+
+# Calculamos el tiempo acorde a las horas, minutos y segundos
+hora <- ((length(lect3)/Fm)/60)/60
+min <- (hora - hora) * 60
+seg <- (min - min) * 60
+
+# Mostramos la duración del registro 
+cat(sprintf("Tiempo de registro: %d horas, %d minutos y %d segundos \n", floor(hora), floor(min), floor(seg)))
+
+# Mostramos la frecuencia del registro
+cat(sprintf("Frecuencia de muestreo: %i Hz \n", Fm))
+
+# Mostramos el voltaje máximo del registro
+cat(sprintf("Voltaje máximo: %d miliVoltios \n", vmax))
+```

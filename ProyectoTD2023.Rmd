@@ -52,3 +52,26 @@ print('Lectura 2 cabecera fichero Analógico: ')
 lect1.2
 
 ```
+
+## Fichero 2: "cabecera_FicheroDigital.dat"
+
+LEYENDA CABECERA DIGITAL:
+  
+  6 datos (uint8_t) con fecha: dia,mes,año,hora,min,seg
+
+2 datos (uint8_t) FM = 4HZ, CANALES = 9
+
+```{r}
+# Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
+f2 <- file("./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/cabecera_FicheroDigital.dat", "rb")
+
+# Leemos el fichero
+lect2 <- readBin(f2, "integer", n = 8, size = 1, signed = F)
+
+# Cerramos el fichero 
+close(f2)
+
+# Mostramos la información contenida en el fichero 
+print(' Lectura cabecera fichero Digital: ')
+lect2
+```

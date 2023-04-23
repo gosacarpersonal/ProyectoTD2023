@@ -1,13 +1,22 @@
 ---
 title: "ProyectoTD2023"
-author: "Carlos Gómez"
+author: "Carlos Gómez Sáez"
 date: "2023-04-19"
 output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Prueba
-Primer commit
+## Consideraciones
+
+Para verificar el que la importación de datos es correcta usaremos los
+datos de la siguiente carpeta:
+  './data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/'.
+
+El número de señales que se deben obtener al leer la cabecera digital
+son 10

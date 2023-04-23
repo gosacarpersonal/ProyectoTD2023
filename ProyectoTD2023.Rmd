@@ -123,3 +123,5 @@ cat(sprintf("Frecuencia de muestreo: %i Hz \n", Fm))
 # Mostramos el voltaje máximo del registro
 cat(sprintf("Voltaje máximo: %d miliVoltios \n", vmax))
 ```
+
+## Fichero 4: "ficheroDigital.dat"

@@ -55,21 +55,16 @@ Siguiente orden:
 ```{r}
 # Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
 f1 <- file("./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/cabecera_FicheroAnalogico.dat", "rb")
-
 # Leemos el fichero 
 lect1.1 <- readBin(f1, "integer", n = 7, size = 1, signed = F)
 lect1.2 <- readBin(f1, "integer", n = 3, size = 2, signed = T)
-
 # Cerramos el fichero 
 close(f1)
-
 # Mostramos la información contenida en el fichero 
 print('Lectura 1 cabecera fichero Analógico: ')
 lect1.1
-
 print('Lectura 2 cabecera fichero Analógico: ')
 lect1.2
-
 ```
 
 ## Fichero 2: "cabecera_FicheroDigital.dat"
@@ -83,20 +78,15 @@ LEYENDA CABECERA DIGITAL:
 ```{r}
 # Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
 f2 <- file("./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/cabecera_FicheroDigital.dat", "rb")
-
 # Creamos un objeto con la información contenida en el fichero
 f2.info <-  file.info("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/cabecera_FicheroDigital.dat")
-
 # Creamos un objeto  con el tamaño del fichero
 # Esto nos ayudará a automatizar el parámetro 'n' de la función 'readBin'.
 f2.size <- f2.info$size
-
 # Leemos el fichero
 lect2 <- readBin(f2, "integer", n = f2.size, size = 1, signed = F)
-
 # Cerramos el fichero 
 close(f2)
-
 # Mostramos la información contenida en el fichero 
 print(' Lectura cabecera fichero Digital: ')
 lect2
@@ -109,47 +99,34 @@ LIBRERÍA NECESARIA: tidyverse
 ```{r}
 # Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
 f3 <- file("./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroAnalogico.dat", "rb")
-
 # Creamos un objeto con la información contenida en el fichero
 f3.info <-  file.info("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroAnalogico.dat")
-
 # Creamos un objeto  con el tamaño del fichero
 # Esto nos ayudará a automatizar el parámetro 'n' de la función 'readBin'.
 f3.size <- f3.info$size
-
 # Leemos el fichero
 lect3 <- readBin(f3, "integer", n = f3.size, size = 2L, signed = T)
-
 # Cerramos el fichero 
 close(f3)
-
 # Mostramos la información contenida en el fichero 
 print('Lectura fichero Analógico: ')
 lect3
-
 # Establecemos la frecuencia de muestreo del fichero
 Fm <- 1000
-
 # Calculamos el eje temporal para el gráfico
 t <- seq(0, (length(lect3)-1)/Fm, by = 1/Fm)
-
 # Graficamos los datos
 plot(t, lect3, type = "l", col = "black", xlab = "Tiempo (s)", ylab = "Voltaje (mV)")
-
 # Buscamos el voltaaje máximo
 vmax <- max(lect3)
-
 # Calculamos el tiempo acorde a las horas, minutos y segundos
 hora <- ((length(lect3)/Fm)/60)/60
 min <- (hora - hora) * 60
 seg <- (min - min) * 60
-
 # Mostramos la duración del registro 
 cat(sprintf("Tiempo de registro: %d horas, %d minutos y %d segundos \n", floor(hora), floor(min), floor(seg)))
-
 # Mostramos la frecuencia del registro
 cat(sprintf("Frecuencia de muestreo: %i Hz \n", Fm))
-
 # Mostramos el voltaje máximo del registro
 cat(sprintf("Voltaje máximo: %d miliVoltios \n", vmax))
 ```
@@ -159,24 +136,18 @@ cat(sprintf("Voltaje máximo: %d miliVoltios \n", vmax))
 ```{r}
 # Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
 f4 <- file("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroDigital.dat", "rb")
-
 # Creamos un objeto con la información contenida en el fichero
 f4.info <-  file.info("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroDigital.dat")
-
 # Creamos un objeto  con el tamaño del fichero
 # Esto nos ayudará a automatizar el parámetro 'n' de la función 'readBin'.
 f4.size <- f4.info$size
-
 # Leemos el fichero
 lect4 <- readBin(f4, what = "integer", n = f4.size, size = 1, signed = F)
-
 # Cerramos el fichero 
 close(f4)
-
 # Mostramos la información contenida en el fichero 
 print(' Lectura fichero Digital: ')
 lect4
-
 # Seleccionamos los datos leídos para cada uno de los 9 canales.
 HR1 <- lect4[seq(1, length(lect4), 9)]
 HR2 <- lect4[seq(2, length(lect4), 9)]
@@ -187,16 +158,12 @@ VCP <- lect4[seq(6, length(lect4), 9)]
 Ps <- lect4[seq(7, length(lect4), 9)]
 Pd <- lect4[seq(8, length(lect4), 9)]
 Pm <- lect4[seq(9, length(lect4), 9)]
-
 # Calculamos la media de la VCP (necesaria para la representación gráfica)
 mediaVCP <- mean(VCP)
-
-
 # Creamos una lista con los diferentes canales
 channels <- list(HR1 = HR1, HR2 = HR2, MHR = MHR, TOCO = TOCO, 
                  MSpO2 = SPO2, VCP = VCP, Psistolica = Ps, 
                  Pdiastolica = Pd, Pmedia = Pm)
-
 # Crear los data frames
 df_HR1 <- data.frame(x = seq_along(HR1), y = HR1, channel = "HR1")
 df_HR2 <- data.frame(x = seq_along(HR2), y = HR2, channel = "HR2")
@@ -207,13 +174,10 @@ df_VCP <- data.frame(x = seq_along(VCP), y = VCP, channel = "VCP")
 df_Ps <- data.frame(x = seq_along(Ps), y = Ps, channel = "Ps")
 df_Pd <- data.frame(x = seq_along(Pd), y = Pd, channel = "Pd")
 df_Pm <- data.frame(x = seq_along(Pm), y = Pm, channel = "Pm")
-
 # Unir todos los data frames
 df_all <- rbind(df_HR1, df_HR2, df_MHR, df_SPO2, df_Pd, df_Pm, df_Ps, df_TOCO, df_VCP)
-
 # Convertir los datos a formato largo
 df_all_melt <- melt(df_all, id.vars = c("x", "channel"))
-
 # Graficar usando ggplot2
 ggplot(df_all_melt, aes(x = x, y = value, color = channel)) +
   geom_line() +
@@ -271,7 +235,6 @@ v2 <- c("data/0795xalvii8a7/27_09_2022/10.11.00/cabecera_FicheroAnalogico.dat",
         "data/0795xalvii8a7/27_09_2022/10.11.00/cabecera_FicheroDigital.dat",
         "data/0795xalvii8a7/27_09_2022/10.11.00/ficheroAnalogico.dat",
         "data/0795xalvii8a7/27_09_2022/10.11.00/ficheroDigital.dat")
-
 v3 <- c("data/0795xalvii8a7/27_09_2022/10.11.12/cabecera_FicheroAnalogico.dat",
         "data/0795xalvii8a7/27_09_2022/10.11.12/cabecera_FicheroDigital.dat",
         "data/0795xalvii8a7/27_09_2022/10.11.12/ficheroAnalogico.dat",
@@ -293,7 +256,6 @@ v5 <- c("data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.31.15/cabecera_FicheroAnalogic
         "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.31.15/cabecera_FicheroDigital.dat",
         "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.31.15/ficheroAnalogico.dat",
         "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.31.15/ficheroDigital.dat")
-
 v6 <- c("data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.49.57/cabecera_FicheroAnalogico.dat",
         "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.49.57/cabecera_FicheroDigital.dat",
         "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.49.57/ficheroAnalogico.dat",
@@ -336,7 +298,6 @@ lectura2 <- function(ruta, size = size, signed = signed) {
   f.size <- f.info$size
   lect <- readBin(f, "integer", n = f.size, size = size, signed = signed)
   close(f)
-
   # Devolvemos el contenido del fichero
   return(lect)
 }
@@ -380,11 +341,9 @@ visualizar2 <- function(lect) {
   Pd <- lect[seq(8, length(lect), by = 9)]
   Pm <- lect[seq(9, length(lect), by = 9)]
   mediaVCP <- mean(VCP)
-
   channels <- list(HR1 = HR1, HR2 = HR2, MHR = MHR, TOCO = TOCO, 
                    MSpO2 = SPO2, VCP = VCP, Psistolica = Ps, 
                    Pdiastolica = Pd, Pmedia = Pm)
-
   df_HR1 <- data.frame(x = seq_along(HR1), y = HR1, channel = "HR1")
   df_HR2 <- data.frame(x = seq_along(HR2), y = HR2, channel = "HR2")
   df_MHR <- data.frame(x = seq_along(MHR), y = MHR, channel = "MHR")
@@ -394,11 +353,8 @@ visualizar2 <- function(lect) {
   df_Ps <- data.frame(x = seq_along(Ps), y = Ps, channel = "Ps")
   df_Pd <- data.frame(x = seq_along(Pd), y = Pd, channel = "Pd")
   df_Pm <- data.frame(x = seq_along(Pm), y = Pm, channel = "Pm")
-
   df_all <- rbind(df_HR1, df_HR2, df_MHR, df_SPO2, df_Pd, df_Pm, df_Ps, df_TOCO, df_VCP)
-
   df_all_melt <- melt(df_all, id.vars = c("x", "channel"))
-
   ggplot(df_all_melt, aes(x = x, y = value, color = channel)) +
     geom_line() +
     labs(title = "Gráficas de los canales del archivo") +
@@ -495,9 +451,10 @@ En realción con los datos de la **frecuencia cardíaca fetal**, proponemos:
 1. ¿Existe alguna relación entre la frecuencia cardíaca fetal y la materna?
 Según lo observado en los datos, se intuye una relación entre ambas frecuencias. Se aprecia que en la medida en la que la frecuencia cardíaca materna aumenta, lo hace también la del feto. Sucede lo mismo cuando la frecuencia cardíaca materna disminuye.
 
+2. ¿Existe alguna relación entre la saturación de oxígeno materno y la frecencia cardíaca fetal?
+En las madres que presentan una saturación de oxígeno menor, la frecuencia cardíaca fetal es levemente superior que en las madres con una saturación de oxígeno un poco más elevada
+
 Con respecto a la relación entre las **contracciones uterinas** y la **frecuencia cardíaca fetal**, proponemos:
 
 3. ¿Hay alguna relación entre la frecuencia y duración de las contracciones uterinas y la frecuencia cardíaca fetal?
 Atendiendo a lo observado en los datos, podemos intuir que la frecuencia (y duración) de las contracciones uterinas tiene una relación con la frecuencia cardíaca fetal. Si la frecuencia de las contracciones uterinas es intensa se produce una disminución en la frecuencia cardíaca fetal.
-
-

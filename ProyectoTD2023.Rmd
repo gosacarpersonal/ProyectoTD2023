@@ -507,4 +507,9 @@ Atendiendo a lo observado en los datos, podemos intuir que la frecuencia (y dura
 4. ¿Hay alguna correlación entre la frecuencia cardíaca fetal y la intensidad de las contracciones uterinas durante el parto?
 Al igual que en la pregunta plateada anteriormente y según los datos observados, se sospecha de una relación entre la intensidad de las contracciones uterinas y la frecuencia cardíaca fetal: si las primeras son muy intensas los valores de la frecuencia cardíaca fetal disminuyen.
 
+En lo referido a la relación entre la **frecuencia cardíaca fetal** y las **presiones sistólica, diastólica** y la **frecuencia cardíaca materna**, proponemos:
+
+5. ¿Hay alguna diferencia en la frecuencia cardíaca fetal entre mujeres con diferentes niveles de presión arterial o frecuencia cardíaca materna durante el parto?
+Se intuye, según lo observado, que unos valores de mayor presión sanguínea materna pueden provocar una disminución de la frecuencia cardíaca fetal. Cuando los primeros son elevados la frecuencia cardíaca fetal es menor.
+
 

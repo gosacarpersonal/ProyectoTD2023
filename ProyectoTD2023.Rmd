@@ -138,7 +138,7 @@ f4.info <-  file.info("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTy
 f4.size <- f4.info$size
 
 # Leemos el fichero
-lect4 <- readBin(f4, what = "integer", n = f4.size, size = 1, endian = "little", signed = F)
+lect4 <- readBin(f4, what = "integer", n = f4.size, size = 1, signed = F)
 
 # Cerramos el fichero 
 close(f4)

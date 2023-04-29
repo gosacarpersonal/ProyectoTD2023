@@ -298,8 +298,19 @@ Esto se ha realizado de esta forma ya que la lectura del Fichero 1: "cabecera_Fi
 
 Pasa lo mismo para los Ficheros 3 y 4. Se van a implementar dos funciones distintas de visualización ya que estos ficheros difieren en cuanto a la información que se deberá graficar.
 
+### Función 1: lectura "cabecera_FicheroAnalogico.dat"
 
-
+```{r}
+lectura1 <- function(ruta) {
+  f <- file(ruta, "rb")
+  lect1 <- readBin(f, "integer", n = 7, size = 1, signed = F)
+  lect2 <- readBin(f, "integer", n = 3, size = 2, signed = T)
+  close(f)
+  
+  # Devolvemos los valores leídos
+  return(list(lect1 = lect1, lect2 = lect2))
+}
+```
 
 
 

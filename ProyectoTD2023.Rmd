@@ -495,6 +495,8 @@ En realción con los datos de la **frecuencia cardíaca fetal**, proponemos:
 1. ¿Existe alguna relación entre la frecuencia cardíaca fetal y la materna?
 Según lo observado en los datos, se intuye una relación entre ambas frecuencias. Se aprecia que en la medida en la que la frecuencia cardíaca materna aumenta, lo hace también la del feto. Sucede lo mismo cuando la frecuencia cardíaca materna disminuye.
 
+2. ¿Existe alguna relación entre la saturación de oxígeno materno y la frecencia cardíaca fetal?
+En las madres que presentan una saturación de oxígeno menor, la frecuencia cardíaca fetal es levemente superior que en las madres con una saturación de oxígeno un poco más elevada
 
 
 

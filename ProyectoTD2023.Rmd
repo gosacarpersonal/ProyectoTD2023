@@ -274,4 +274,16 @@ v4 <- c("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/cabecera
         "data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroDigital.dat")
 ```
 
+### Carpeta 4: "data/ecg5_210xlxi81_IP_39_eBR_BRP_720"
+```{r}
+v5 <- c("data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.31.15/cabecera_FicheroAnalogico.dat",
+        "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.31.15/cabecera_FicheroDigital.dat",
+        "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.31.15/ficheroAnalogico.dat",
+        "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.31.15/ficheroDigital.dat")
+
+v6 <- c("data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.49.57/cabecera_FicheroAnalogico.dat",
+        "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.49.57/cabecera_FicheroDigital.dat",
+        "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.49.57/ficheroAnalogico.dat",
+        "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.49.57/ficheroDigital.dat")
+```
 

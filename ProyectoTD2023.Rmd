@@ -146,5 +146,19 @@ close(f4)
 # Mostramos la información contenida en el fichero 
 print(' Lectura fichero Digital: ')
 lect4
+
+# Seleccionamos los datos leídos para cada uno de los 9 canales.
+HR1 <- lect4[seq(1, length(lect4), 9)]
+HR2 <- lect4[seq(2, length(lect4), 9)]
+MHR <- lect4[seq(3, length(lect4), 9)]
+TOCO <- lect4[seq(4, length(lect4), 9)]
+SPO2 <- lect4[seq(5, length(lect4), 9)]
+VCP <- lect4[seq(6, length(lect4), 9)]
+Ps <- lect4[seq(7, length(lect4), 9)]
+Pd <- lect4[seq(8, length(lect4), 9)]
+Pm <- lect4[seq(9, length(lect4), 9)]
+
+# Calculamos la media de la VCP (necesaria para la representación gráfica)
+mediaVCP <- mean(VCP)
 ```
 

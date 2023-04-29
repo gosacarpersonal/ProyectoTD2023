@@ -461,7 +461,27 @@ visualizar1(fichero_a, Fm)
 visualizar2(fichero_d)
 ```
 
+### Carpeta 4
 
+```{r}
+# Vector 5
+cabecera_fa  <- lectura1(v5[1])
+cabecera_fd <- lectura2(v5[2], size = 1,signed = F)
+fichero_a <- lectura2(v5[3], size = 2,signed = T)
+fichero_d <- lectura2(v5[4], size = 1,signed = F)
+  
+visualizar1(fichero_a, Fm)
+visualizar2(fichero_d)
+```
 
-
+```{r}
+# Vector 6
+cabecera_fa  <- lectura1(v6[1])
+cabecera_fd <- lectura2(v6[2], size = 1,signed = F)
+fichero_a <- lectura2(v6[3], size = 2,signed = T)
+fichero_d <- lectura2(v6[4], size = 1,signed = F)
+  
+visualizar1(fichero_a, Fm)
+visualizar2(fichero_d)
+```
 

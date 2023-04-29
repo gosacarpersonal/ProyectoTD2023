@@ -515,3 +515,5 @@ Se intuye, según lo observado, que unos valores de mayor presión sanguínea ma
 6. ¿Cuál es el intervalo normal de frecuencia cardíaca fetal?¿Y de frecuencia cardíaca materna?
 La frecuencia cardíaca fetal considerada normal se encuentra entre los 110 y 160 latidos por minuto. Y la frecuencia cardíaca materna como norma general, ronda entre los 85-90 latidos por minuto
 
+7. ¿Existe alguna relación entre la frecuencia cardíaca fetal y la presión sistólica o diastólica de la madre durante el parto?
+Según lo observado, y tal y como se ha sugerido en la pregunta 5, se intuye la existencia de una relación entre ambas frecuencias. Unos valores de mayor presión sanguínea materna pueden provocar una disminución de la frecuencia cardíaca fetal.

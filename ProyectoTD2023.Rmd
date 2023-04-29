@@ -512,4 +512,6 @@ En lo referido a la relación entre la **frecuencia cardíaca fetal** y las **pr
 5. ¿Hay alguna diferencia en la frecuencia cardíaca fetal entre mujeres con diferentes niveles de presión arterial o frecuencia cardíaca materna durante el parto?
 Se intuye, según lo observado, que unos valores de mayor presión sanguínea materna pueden provocar una disminución de la frecuencia cardíaca fetal. Cuando los primeros son elevados la frecuencia cardíaca fetal es menor.
 
+6. ¿Cuál es el intervalo normal de frecuencia cardíaca fetal?¿Y de frecuencia cardíaca materna?
+La frecuencia cardíaca fetal considerada normal se encuentra entre los 110 y 160 latidos por minuto. Y la frecuencia cardíaca materna como norma general, ronda entre los 85-90 latidos por minuto
 

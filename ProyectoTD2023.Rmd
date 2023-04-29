@@ -125,3 +125,14 @@ cat(sprintf("Voltaje máximo: %d miliVoltios \n", vmax))
 ```
 
 ## Fichero 4: "ficheroDigital.dat"
+
+```{r}
+# Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
+f4 <- file("./data/data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroDigital.dat", "rb")
+
+# Leemos el fichero
+lect4 <- readBin(f4, "integer", n = 100000000, size = 1L, signed = F)
+# Cerramos el fichero 
+close(f4)
+```
+

@@ -107,9 +107,6 @@ lect2
 LIBRERÍA NECESARIA: tidyverse
 
 ```{r}
-# Importamos la librería encesaria:
-library(tidyverse)
-
 # Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
 f3 <- file("./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroAnalogico.dat", "rb")
 
@@ -160,10 +157,6 @@ cat(sprintf("Voltaje máximo: %d miliVoltios \n", vmax))
 ## Fichero 4: "ficheroDigital.dat"
 
 ```{r}
-# Librerías necesarias para graficar el fichero
-library(ggplot2)
-library(reshape2)
-
 # Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
 f4 <- file("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroDigital.dat", "rb")
 
@@ -371,5 +364,57 @@ visualizar1 <- function(lect, Fm = 1000) {
   cat(sprintf("Voltaje máximo: %d miliVoltios \n", vmax))
 }
 ```
+
+### Función 4: visualizar "ficheroDigital.dat"
+
+```{r}
+visualizar2 <- function(lect) {
+  HR1 <- lect[seq(1, length(lect), by = 9)]
+  HR2 <- lect[seq(2, length(lect), by = 9)]
+  MHR <- lect[seq(3, length(lect), by = 9)]
+  TOCO <- lect[seq(4, length(lect), by = 9)]
+  SPO2 <- lect[seq(5, length(lect), by = 9)]
+  VCP <- lect[seq(6, length(lect), by = 9)]
+  Ps <- lect[seq(7, length(lect), by = 9)]
+  Pd <- lect[seq(8, length(lect), by = 9)]
+  Pm <- lect[seq(9, length(lect), by = 9)]
+  mediaVCP <- mean(VCP)
+
+  channels <- list(HR1 = HR1, HR2 = HR2, MHR = MHR, TOCO = TOCO, 
+                   MSpO2 = SPO2, VCP = VCP, Psistolica = Ps, 
+                   Pdiastolica = Pd, Pmedia = Pm)
+
+  df_HR1 <- data.frame(x = seq_along(HR1), y = HR1, channel = "HR1")
+  df_HR2 <- data.frame(x = seq_along(HR2), y = HR2, channel = "HR2")
+  df_MHR <- data.frame(x = seq_along(MHR), y = MHR, channel = "MHR")
+  df_TOCO <- data.frame(x = seq_along(TOCO), y = TOCO, channel = "TOCO")
+  df_SPO2 <- data.frame(x = seq_along(SPO2), y = SPO2, channel = "SPO2")
+  df_VCP <- data.frame(x = seq_along(VCP), y = VCP, channel = "VCP")
+  df_Ps <- data.frame(x = seq_along(Ps), y = Ps, channel = "Ps")
+  df_Pd <- data.frame(x = seq_along(Pd), y = Pd, channel = "Pd")
+  df_Pm <- data.frame(x = seq_along(Pm), y = Pm, channel = "Pm")
+
+  df_all <- rbind(df_HR1, df_HR2, df_MHR, df_SPO2, df_Pd, df_Pm, df_Ps, df_TOCO, df_VCP)
+
+  df_all_melt <- melt(df_all, id.vars = c("x", "channel"))
+
+  ggplot(df_all_melt, aes(x = x, y = value, color = channel)) +
+    geom_line() +
+    labs(title = "Gráficas de los canales del archivo") +
+    scale_color_manual(values = c("#E41A1C", "#FF7F00", "#4DAF4A", "#377EB8", "#984EA3", "#000000", "#41AE76", "#FDBF6F", "#A65628")) +
+    facet_wrap(~ channel, scales = "free_y") +
+    ylab("") +
+    xlab("") +
+    theme(legend.position = "none")
+}
+```
+
+
+
+
+
+
+
+
 
 

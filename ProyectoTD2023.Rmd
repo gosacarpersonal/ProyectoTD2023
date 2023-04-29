@@ -495,6 +495,9 @@ En realción con los datos de la **frecuencia cardíaca fetal**, proponemos:
 1. ¿Existe alguna relación entre la frecuencia cardíaca fetal y la materna?
 Según lo observado en los datos, se intuye una relación entre ambas frecuencias. Se aprecia que en la medida en la que la frecuencia cardíaca materna aumenta, lo hace también la del feto. Sucede lo mismo cuando la frecuencia cardíaca materna disminuye.
 
+Con respecto a la relación entre las **contracciones uterinas** y la **frecuencia cardíaca fetal**, proponemos:
 
+3. ¿Hay alguna relación entre la frecuencia y duración de las contracciones uterinas y la frecuencia cardíaca fetal?
+Atendiendo a lo observado en los datos, podemos intuir que la frecuencia (y duración) de las contracciones uterinas tiene una relación con la frecuencia cardíaca fetal. Si la frecuencia de las contracciones uterinas es intensa se produce una disminución en la frecuencia cardíaca fetal.
 
 

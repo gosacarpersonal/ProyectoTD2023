@@ -65,8 +65,15 @@ LEYENDA CABECERA DIGITAL:
 # Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
 f2 <- file("./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/cabecera_FicheroDigital.dat", "rb")
 
+# Creamos un objeto con la información contenida en el fichero
+f2.info <-  file.info("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/cabecera_FicheroDigital.dat")
+
+# Creamos un objeto  con el tamaño del fichero
+# Esto nos ayudará a automatizar el parámetro 'n' de la función 'readBin'.
+f2.size <- f2.info$size
+
 # Leemos el fichero
-lect2 <- readBin(f2, "integer", n = 8, size = 1, signed = F)
+lect2 <- readBin(f2, "integer", n = f2.size, size = 1, signed = F)
 
 # Cerramos el fichero 
 close(f2)
@@ -87,14 +94,21 @@ library(tidyverse)
 # Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
 f3 <- file("./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroAnalogico.dat", "rb")
 
+# Creamos un objeto con la información contenida en el fichero
+f3.info <-  file.info("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroAnalogico.dat")
+
+# Creamos un objeto  con el tamaño del fichero
+# Esto nos ayudará a automatizar el parámetro 'n' de la función 'readBin'.
+f3.size <- f3.info$size
+
 # Leemos el fichero
-lect3 <- readBin(f3, "integer", n = 1000, size = 2L, signed = T)
+lect3 <- readBin(f3, "integer", n = f3.size, size = 2L, signed = T)
 
 # Cerramos el fichero 
 close(f3)
 
 # Mostramos la información contenida en el fichero 
-print(' Lectura fichero Analógico: ')
+print('Lectura fichero Analógico: ')
 lect3
 
 # Establecemos la frecuencia de muestreo del fichero
@@ -127,6 +141,10 @@ cat(sprintf("Voltaje máximo: %d miliVoltios \n", vmax))
 ## Fichero 4: "ficheroDigital.dat"
 
 ```{r}
+# Librerías necesarias para graficar el fichero
+library(ggplot2)
+library(reshape2)
+
 # Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
 f4 <- file("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroDigital.dat", "rb")
 
@@ -160,5 +178,37 @@ Pm <- lect4[seq(9, length(lect4), 9)]
 
 # Calculamos la media de la VCP (necesaria para la representación gráfica)
 mediaVCP <- mean(VCP)
+
+# Creamos una lista con los diferentes canales
+channels <- list(HR1 = HR1, HR2 = HR2, MHR = MHR, TOCO = TOCO, 
+                 MSpO2 = SPO2, VCP = VCP, Psistolica = Ps, 
+                 Pdiastolica = Pd, Pmedia = Pm)
+
+# Crear los data frames
+df_HR1 <- data.frame(x = seq_along(HR1), y = HR1, channel = "HR1")
+df_HR2 <- data.frame(x = seq_along(HR2), y = HR2, channel = "HR2")
+df_MHR <- data.frame(x = seq_along(MHR), y = MHR, channel = "MHR")
+df_TOCO <- data.frame(x = seq_along(TOCO), y = TOCO, channel = "TOCO")
+df_SPO2 <- data.frame(x = seq_along(SPO2), y = SPO2, channel = "SPO2")
+df_VCP <- data.frame(x = seq_along(VCP), y = VCP, channel = "VCP")
+df_Ps <- data.frame(x = seq_along(Ps), y = Ps, channel = "Ps")
+df_Pd <- data.frame(x = seq_along(Pd), y = Pd, channel = "Pd")
+df_Pm <- data.frame(x = seq_along(Pm), y = Pm, channel = "Pm")
+
+# Unir todos los data frames
+df_all <- rbind(df_HR1, df_HR2, df_MHR, df_SPO2, df_Pd, df_Pm, df_Ps, df_TOCO, df_VCP)
+
+# Convertir los datos a formato largo
+df_all_melt <- melt(df_all, id.vars = c("x", "channel"))
+
+# Graficar usando ggplot2
+ggplot(df_all_melt, aes(x = x, y = value, color = channel)) +
+  geom_line() +
+  labs(title = "Gráficas de los canales del archivo") +
+  scale_color_manual(values = c("#E41A1C", "#FF7F00", "#4DAF4A", "#377EB8", "#984EA3", "#000000", "#41AE76", "#FDBF6F", "#A65628")) +
+  facet_wrap(~ channel, scales = "free_y") +
+  ylab("") +
+  xlab("") +
+  theme(legend.position = "none")
 ```
 

@@ -490,6 +490,10 @@ visualizar2(fichero_d)
 
 En este apartado se plantean una serie de preguntas surgidas a raíz de la exploración general llevada a cabo tras la importación de los datos, realizada anteriormente.
 
+En realción con los datos de la **frecuencia cardíaca fetal**, proponemos:
+
+1. ¿Existe alguna relación entre la frecuencia cardíaca fetal y la materna?
+Según lo observado en los datos, se intuye una relación entre ambas frecuencias. Se aprecia que en la medida en la que la frecuencia cardíaca materna aumenta, lo hace también la del feto. Sucede lo mismo cuando la frecuencia cardíaca materna disminuye.
 
 
 

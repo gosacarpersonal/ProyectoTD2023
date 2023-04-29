@@ -1,6 +1,6 @@
 ---
 title: "ProyectoTD2023"
-author: "Carlos Gómez Sáez"
+author: "Carlos Gómez Sáez, Amalia Guarner Giner"
 date: "2023-04-19"
 output: html_document
 editor_options: 
@@ -190,6 +190,7 @@ Pm <- lect4[seq(9, length(lect4), 9)]
 
 # Calculamos la media de la VCP (necesaria para la representación gráfica)
 mediaVCP <- mean(VCP)
+
 
 # Creamos una lista con los diferentes canales
 channels <- list(HR1 = HR1, HR2 = HR2, MHR = MHR, TOCO = TOCO, 
@@ -484,4 +485,10 @@ fichero_d <- lectura2(v6[4], size = 1,signed = F)
 visualizar1(fichero_a, Fm)
 visualizar2(fichero_d)
 ```
+
+
+
+
+
+
 

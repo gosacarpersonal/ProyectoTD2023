@@ -287,3 +287,21 @@ v6 <- c("data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.49.57/cabecera_FicheroAnalogic
         "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.49.57/ficheroDigital.dat")
 ```
 
+
+## Creación de funciones
+
+Las funciones que se implementarán en este apartado son simplemente una adaptación, sin comentarios, de las funciones utilizadas en el apartado "Lectura de ficheros".
+
+Serán 4 funciones, dos que se ocuparán de la lectura de los ficheros y otras dos que se ocuparán de la visualización de los datos.
+
+Esto se ha realizado de esta forma ya que la lectura del Fichero 1: "cabecera_FicheroAnalogico.dat" tiene una lectura diferente a su homólogo, "cabecera_FicheroDigital.dat". Es por esta razón que hemos decidido realizar dos funciones.
+
+Pasa lo mismo para los Ficheros 3 y 4. Se van a implementar dos funciones distintas de visualización ya que estos ficheros difieren en cuanto a la información que se deberá graficar.
+
+
+
+
+
+
+
+

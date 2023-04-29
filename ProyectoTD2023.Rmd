@@ -329,7 +329,28 @@ lectura2 <- function(ruta, size = size, signed = signed) {
 }
 ```
 
+### Función 3: visuzalizar "ficheroAnalogico.dat"
 
+En esta función el parámerto 'Fm' se ha establecido como constante ya que todos los ficheros que se han de visualizar son del mismo tipo y, por ende, tienen la misma frecuencia de muestreo.
 
+```{r}
+visualizar1 <- function(lect, Fm = 1000) {
+  t <- seq(0, (length(lect)-1)/Fm, by = 1/Fm)
+  
+  plot(t, lect, type = "l", col = "black", xlab = "Tiempo (s)", ylab = "Voltaje (mV)")
+  
+  vmax <- max(lect)
+  
+  hora <- ((length(lect)/Fm)/60)/60
+  min <- (hora - hora) * 60
+  seg <- (min - min) * 60
+  
+  cat(sprintf("Tiempo de registro: %d horas, %d minutos y %d segundos \n", floor(hora), floor(min), floor(seg)))
+  
+  cat(sprintf("Frecuencia de muestreo: %i Hz \n", Fm))
+  
+  cat(sprintf("Voltaje máximo: %d miliVoltios \n", vmax))
+}
+```
 
 

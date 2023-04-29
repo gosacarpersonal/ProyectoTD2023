@@ -12,11 +12,11 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Consideraciones
+# Consideraciones
 
 Para verificar el que la importación de datos es correcta usaremos los
 datos de la siguiente carpeta:
-  './data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/'.
+'./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/'.
 
 El número de señales que se deben obtener al leer la cabecera digital
 son 10
@@ -24,10 +24,10 @@ son 10
 ## Fichero 1: "cabecera_FicheroAnalogico.dat"
 
 LEYENDA CABECERA ANALOGICA:
-  
-  Siguiente orden:
-  
-  6 datos (uint8_t) con fecha: dia, mes, año, hora, min, seg
+
+Siguiente orden:
+
+6 datos (uint8_t) con fecha: dia, mes, año, hora, min, seg
 
 1 datos (uint8_t) del ADC: resolucion (bits)
 
@@ -56,8 +56,8 @@ lect1.2
 ## Fichero 2: "cabecera_FicheroDigital.dat"
 
 LEYENDA CABECERA DIGITAL:
-  
-  6 datos (uint8_t) con fecha: dia,mes,año,hora,min,seg
+
+6 datos (uint8_t) con fecha: dia,mes,año,hora,min,seg
 
 2 datos (uint8_t) FM = 4HZ, CANALES = 9
 
@@ -212,3 +212,31 @@ ggplot(df_all_melt, aes(x = x, y = value, color = channel)) +
   theme(legend.position = "none")
 ```
 
+# Automatización
+
+Una vez hecha la importación y visualización a partir de los ficheros en
+la carpeta de pruebas. Hemos verificado el correcto funcionamiento, es
+decir, lo que hemos obtenido era lo esperado.
+
+El proceso de automatización se llevará a cabo a partir de crear 4
+funciones que nos permitirán realizar la lectura y visualización de los
+ficheros sin tener que escribir de nuevo el código entero.
+
+Esto se llevará a cabo por carpetas, para ello se creará un vector por
+carpeta encontrada cuyo contenido sean los 4 ficheros que vamos a
+tratar.
+
+Hemos detectado 4 carpetas principales:
+
+-   "data/0519xxxiii14/06_02_2023"
+
+-   "data/0795xalvii8a7/27_09_2022"
+
+-   "data/1059xlxveei79_ECGf2/27_09_2022"
+
+-   "data/ecg5_210xlxi81_IP_39_eBR_BRP_720"
+
+Dos de ellas contienten, a parte, otras dos carpetas más, por lo tanto
+habrá más de 4 vectores a usar. Como es obvio, cada vector contendrá las
+rutas de los ficheros a importar y visualizar, es por ello que tendrá 4
+componentes el vector.

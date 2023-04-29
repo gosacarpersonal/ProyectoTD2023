@@ -128,11 +128,23 @@ cat(sprintf("Voltaje máximo: %d miliVoltios \n", vmax))
 
 ```{r}
 # Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
-f4 <- file("./data/data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroDigital.dat", "rb")
+f4 <- file("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroDigital.dat", "rb")
+
+# Creamos un objeto con la información contenida en el fichero
+f4.info <-  file.info("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/ficheroDigital.dat")
+
+# Creamos un objeto  con el tamaño del fichero
+# Esto nos ayudará a automatizar el parámetro 'n' de la función 'readBin'.
+f4.size <- f4.info$size
 
 # Leemos el fichero
-lect4 <- readBin(f4, "integer", n = 100000000, size = 1L, signed = F)
+lect4 <- readBin(f4, what = "integer", n = f4.size, size = 1, endian = "little", signed = F)
+
 # Cerramos el fichero 
 close(f4)
+
+# Mostramos la información contenida en el fichero 
+print(' Lectura fichero Digital: ')
+lect4
 ```
 

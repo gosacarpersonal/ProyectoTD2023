@@ -486,7 +486,9 @@ visualizar1(fichero_a, Fm)
 visualizar2(fichero_d)
 ```
 
+# Punto 4: Exploración inicial de los datos.
 
+En este apartado se plantean una serie de preguntas surgidas a raíz de la exploración general llevada a cabo tras la importación de los datos, realizada anteriormente.
 
 
 

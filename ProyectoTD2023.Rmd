@@ -496,5 +496,15 @@ En realción con los datos de la **frecuencia cardíaca fetal**, proponemos:
 Según lo observado en los datos, se intuye una relación entre ambas frecuencias. Se aprecia que en la medida en la que la frecuencia cardíaca materna aumenta, lo hace también la del feto. Sucede lo mismo cuando la frecuencia cardíaca materna disminuye.
 
 
+2. ¿Existe alguna relación entre la saturación de oxígeno materno y la frecencia cardíaca fetal?
+En las madres que presentan una saturación de oxígeno menor, la frecuencia cardíaca fetal es levemente superior que en las madres con una saturación de oxígeno un poco más elevada.
+
+Con respecto a la relación entre las **contracciones uterinas** y la **frecuencia cardíaca fetal**, proponemos:
+
+3. ¿Hay alguna relación entre la frecuencia y duración de las contracciones uterinas y la frecuencia cardíaca fetal?
+Atendiendo a lo observado en los datos, podemos intuir que la frecuencia (y duración) de las contracciones uterinas tiene una relación con la frecuencia cardíaca fetal. Si la frecuencia de las contracciones uterinas es intensa se produce una disminución en la frecuencia cardíaca fetal.
+
+4. ¿Hay alguna correlación entre la frecuencia cardíaca fetal y la intensidad de las contracciones uterinas durante el parto?
+Al igual que en la pregunta plateada anteriormente y según los datos observados, se sospecha de una relación entre la intensidad de las contracciones uterinas y la frecuencia cardíaca fetal: si las primeras son muy intensas los valores de la frecuencia cardíaca fetal disminuyen.
 
 

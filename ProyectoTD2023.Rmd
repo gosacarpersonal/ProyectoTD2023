@@ -222,6 +222,8 @@ El proceso de automatización se llevará a cabo a partir de crear 4
 funciones que nos permitirán realizar la lectura y visualización de los
 ficheros sin tener que escribir de nuevo el código entero.
 
+## Creación de vectores
+
 Esto se llevará a cabo por carpetas, para ello se creará un vector por
 carpeta encontrada cuyo contenido sean los 4 ficheros que vamos a
 tratar.
@@ -240,3 +242,18 @@ Dos de ellas contienten, a parte, otras dos carpetas más, por lo tanto
 habrá más de 4 vectores a usar. Como es obvio, cada vector contendrá las
 rutas de los ficheros a importar y visualizar, es por ello que tendrá 4
 componentes el vector.
+
+### Carpeta 1: "data/0519xxxiii14/06_02_2023"
+```{r}
+v1 <- c("data/0519xxxiii14/06_02_2023/14.20.34/cabecera_FicheroAnalogico.dat",
+        "data/0519xxxiii14/06_02_2023/14.20.34/cabecera_FicheroDigital.dat",
+        "data/0519xxxiii14/06_02_2023/14.20.34/ficheroAnalogico.dat",
+        "data/0519xxxiii14/06_02_2023/14.20.34/ficheroDigital.dat")
+```
+
+
+
+
+
+
+

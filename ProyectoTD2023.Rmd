@@ -1,6 +1,6 @@
 ---
 title: "ProyectoTD2023"
-author: "Carlos Gómez Sáez, Amalia Guarner Giner"
+author: "Carlos Gómez Sáez, Amalia Guarner Giner, Mireia Pérez García"
 date: "2023-04-19"
 output: html_document
 editor_options: 

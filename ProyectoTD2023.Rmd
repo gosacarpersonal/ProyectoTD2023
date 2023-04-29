@@ -312,6 +312,23 @@ lectura1 <- function(ruta) {
 }
 ```
 
+### Función 2: lectura "cabecera_FicheroDigital.dat", "ficheroAnalogico.dat" y "ficheroDigital.dat"
+
+En esta función se han de pasar como parámetros 'size' y 'signed' ya que para cada fichero se utiliza un valor distinto.
+
+```{r}
+lectura2 <- function(ruta, size = size, signed = signed) {
+  f <- file(ruta, "rb")
+  f.info <- file.info(ruta)
+  f.size <- f.info$size
+  lect <- readBin(f, "integer", n = f.size, size = size, signed = signed)
+  close(f)
+
+  # Devolvemos el contenido del fichero
+  return(lect)
+}
+```
+
 
 
 

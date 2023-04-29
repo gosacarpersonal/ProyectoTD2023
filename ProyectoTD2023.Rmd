@@ -21,6 +21,25 @@ datos de la siguiente carpeta:
 El número de señales que se deben obtener al leer la cabecera digital
 son 10
 
+# Librerías
+
+Cargamos todas las librerías necesarias para este proyecto
+
+```{r eval=T, include=F}
+# Especificamos las librerías necesarias en esta lista
+packages = c("knitr", "ggplot2","tidyr","reshape2","tidyverse")# use this function to check if each package is on the local machine
+# if a package is installed, it will be loaded
+# if any are not, the missing package(s) will be installed and loaded
+package.check <- lapply(packages, FUN = function(x) {
+  if (!require(x, character.only = TRUE)) {
+    install.packages(x, dependencies = TRUE,repos='http://cran.rediris.es')
+    library(x, character.only = TRUE)
+  }
+})
+# verify they are loaded
+search()
+```
+
 ## Fichero 1: "cabecera_FicheroAnalogico.dat"
 
 LEYENDA CABECERA ANALOGICA:

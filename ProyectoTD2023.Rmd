@@ -409,7 +409,20 @@ visualizar2 <- function(lect) {
 }
 ```
 
+## Ejecución
 
+### Carpeta 1
+
+```{r}
+# Vector 1
+cabecera_fa  <- lectura1(v1[1])
+cabecera_fd <- lectura2(v1[2], size = 1,signed = F)
+fichero_a <- lectura2(v1[3], size = 2,signed = T)
+fichero_d <- lectura2(v1[4], size = 1,signed = F)
+  
+visualizar1(fichero_a, Fm)
+visualizar2(fichero_d)
+```
 
 
 

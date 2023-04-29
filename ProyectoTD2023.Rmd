@@ -251,7 +251,19 @@ v1 <- c("data/0519xxxiii14/06_02_2023/14.20.34/cabecera_FicheroAnalogico.dat",
         "data/0519xxxiii14/06_02_2023/14.20.34/ficheroDigital.dat")
 ```
 
+### Carpeta 2: "data/0795xalvii8a7/27_09_2022"
 
+```{r}
+v2 <- c("data/0795xalvii8a7/27_09_2022/10.11.00/cabecera_FicheroAnalogico.dat",
+        "data/0795xalvii8a7/27_09_2022/10.11.00/cabecera_FicheroDigital.dat",
+        "data/0795xalvii8a7/27_09_2022/10.11.00/ficheroAnalogico.dat",
+        "data/0795xalvii8a7/27_09_2022/10.11.00/ficheroDigital.dat")
+
+v3 <- c("data/0795xalvii8a7/27_09_2022/10.11.12/cabecera_FicheroAnalogico.dat",
+        "data/0795xalvii8a7/27_09_2022/10.11.12/cabecera_FicheroDigital.dat",
+        "data/0795xalvii8a7/27_09_2022/10.11.12/ficheroAnalogico.dat",
+        "data/0795xalvii8a7/27_09_2022/10.11.12/ficheroDigital.dat")
+```
 
 
 

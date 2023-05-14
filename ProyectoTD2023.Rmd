@@ -444,6 +444,8 @@ visualizar2 <- function(lect) {
 
 ## Ejecución
 
+Como bien dice el título del apartado, ahora toca ejecutar las funciones a las diferentes carpetas del proyecto. Además, en este apartado también se tratarán los datos, si fuera necesario, en los que hayan NA's.
+
 ### Carpeta 1
 
 ```{r}

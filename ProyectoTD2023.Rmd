@@ -12,22 +12,40 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Consideraciones
+# Limpieza del "Global Enviroment"
 
-Para verificar el que la importación de datos es correcta usaremos los
-datos de la siguiente carpeta:
-'./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/'.
+Primeramente, debemos asegurarnos que nuestra zona de trabajo en R, en la cual se guardarán todas aquellas variables que posteriormente serán utilizadas, esté vacía. Esto nos ayudará a que no hayan otras variables que interfieran en nuestro proyecto.
 
-El número de señales que se deben obtener al leer la cabecera digital
-son 10
+```{r}
+# Limpiamos la zona de trabajo por si mantuviera datos de otros proyectyos
+rm(list = ls())
+```
 
 # Librerías
 
-Cargamos todas las librerías necesarias para este proyecto
+Cargamos todas las librerías necesarias para este proyecto:
+
+-   dplyr 
+
+-   ggplot2 
+
+-   ggthemes 
+
+-   knitr 
+
+-   readr 
+
+-   reshape2 
+ 
+-   stringr 
+
+-   tidyr 
+
+-   tidyverse 
 
 ```{r eval=T, include=F}
 # Especificamos las librerías necesarias en esta lista
-packages = c("knitr", "ggplot2","tidyr","reshape2","tidyverse")# use this function to check if each package is on the local machine
+packages = c("dplyr", "ggplot2","ggthemes","knitr","readr","reshape2", "stringr", "tidyr", "tidyverse")# use this function to check if each package is on the local machine
 # if a package is installed, it will be loaded
 # if any are not, the missing package(s) will be installed and loaded
 package.check <- lapply(packages, FUN = function(x) {
@@ -39,6 +57,21 @@ package.check <- lapply(packages, FUN = function(x) {
 # verify they are loaded
 search()
 ```
+
+# Consideraciones Previas
+
+Para verificar el que la prueba de importación de datos es correcta usaremos los
+datos de la siguiente carpeta:
+'./data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/'.
+
+Es por ello que primeramente se probarán los chunks con códigos de importación y visualización con los archivos disponibles en dicha carpeta. Este procedimiento es necesario puesto que es la única forma de asegurarnos de tener bien hechas las importaciones y visualizaciones de los datos. 
+
+El número de señales que se deben obtener al leer la cabecera digital
+son 10.
+
+# Carpeta de prueba
+
+En este apartado, como ya se ha comentado anteriormente, vamos a verificar, mediante la carpeta de prueba, que el código proporciona los datos esperados.
 
 ## Fichero 1: "cabecera_FicheroAnalogico.dat"
 
@@ -69,7 +102,6 @@ lect1.1
 
 print('Lectura 2 cabecera fichero Analógico: ')
 lect1.2
-
 ```
 
 ## Fichero 2: "cabecera_FicheroDigital.dat"
@@ -103,8 +135,6 @@ lect2
 ```
 
 ## Fichero 3: "ficheroAnalogico.dat"
-
-LIBRERÍA NECESARIA: tidyverse
 
 ```{r}
 # Creamos un objeto de conexión para leer el archivo binario usando el modo "rb"
@@ -225,21 +255,21 @@ ggplot(df_all_melt, aes(x = x, y = value, color = channel)) +
   theme(legend.position = "none")
 ```
 
+Como podemos observar al comparar nuestros resultados con los proporcionados en el fichero "INFORME DE DESARROLLO_TD.pdf" contenido en la carpeta "data" de nuestro proyecto, estos son los que deberían ser. Es por ello que podemos automatizar el proceso para todas las carpetas. 
+
 # Automatización
 
 Una vez hecha la importación y visualización a partir de los ficheros en
-la carpeta de pruebas. Hemos verificado el correcto funcionamiento, es
-decir, lo que hemos obtenido era lo esperado.
+la carpeta de pruebas y verificado su correcto funcionamiento, podemos comenzar con el proceso de automatización.
 
-El proceso de automatización se llevará a cabo a partir de crear 4
+Este proceso se llevará a cabo a partir de crear 4
 funciones que nos permitirán realizar la lectura y visualización de los
 ficheros sin tener que escribir de nuevo el código entero.
 
 ## Creación de vectores
 
-Esto se llevará a cabo por carpetas, para ello se creará un vector por
-carpeta encontrada cuyo contenido sean los 4 ficheros que vamos a
-tratar.
+Al tener que automatizar por carpetas, se creará un vector por
+carpeta encontrada en los datos proporcionados cuyo contenido sean los 4 ficheros que vamos a tratar.
 
 Hemos detectado 4 carpetas principales:
 
@@ -257,6 +287,7 @@ rutas de los ficheros a importar y visualizar, es por ello que tendrá 4
 componentes el vector.
 
 ### Carpeta 1: "data/0519xxxiii14/06_02_2023"
+
 ```{r}
 v1 <- c("data/0519xxxiii14/06_02_2023/14.20.34/cabecera_FicheroAnalogico.dat",
         "data/0519xxxiii14/06_02_2023/14.20.34/cabecera_FicheroDigital.dat",
@@ -288,6 +319,7 @@ v4 <- c("data/1059xlxveei79_ECGf2/27_09_2022/14.42.29_III_ECGyEXTyRESTO/cabecera
 ```
 
 ### Carpeta 4: "data/ecg5_210xlxi81_IP_39_eBR_BRP_720"
+
 ```{r}
 v5 <- c("data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.31.15/cabecera_FicheroAnalogico.dat",
         "data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.31.15/cabecera_FicheroDigital.dat",
@@ -303,7 +335,7 @@ v6 <- c("data/ecg5_210xlxi81_IP_39_eBR_BRP_720/12.49.57/cabecera_FicheroAnalogic
 
 ## Creación de funciones
 
-Las funciones que se implementarán en este apartado son simplemente una adaptación, sin comentarios, de las funciones utilizadas en el apartado "Lectura de ficheros".
+Las funciones que se implementarán en este apartado son simplemente una adaptación, sin comentarios, de las funciones utilizadas en el apartado "Carpeta de prueba".
 
 Serán 4 funciones, dos que se ocuparán de la lectura de los ficheros y otras dos que se ocuparán de la visualización de los datos.
 
@@ -403,7 +435,7 @@ visualizar2 <- function(lect) {
     geom_line() +
     labs(title = "Gráficas de los canales del archivo") +
     scale_color_manual(values = c("#E41A1C", "#FF7F00", "#4DAF4A", "#377EB8", "#984EA3", "#000000", "#41AE76", "#FDBF6F", "#A65628")) +
-    facet_wrap(~ channel, scales = "free_y") +
+    facet_wrap(~ channel, scales = "free") +
     ylab("") +
     xlab("") +
     theme(legend.position = "none")

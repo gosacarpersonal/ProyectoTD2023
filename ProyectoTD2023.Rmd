@@ -486,6 +486,22 @@ visualizar1(fichero_a, Fm)
 visualizar2(fichero_d)
 ```
 
+## Comprobación de data frames (NA)
+```{r}
+all(is.na(df_HR1))
+all(is.na(df_HR2))
+all(is.na(df_MHR))
+all(is.na(df_TOCO))
+all(is.na(df_SPO2))
+all(is.na(df_VCP))
+all(is.na(df_Ps))
+all(is.na(df_Pd))
+all(is.na(df_Pm))
+all(is.na(df_all))
+all(is.na(df_all_melt))
+# Como podemos observar, los data frame se han denerado correctamente sin ningún NA.
+```
+
 # Punto 4: Exploración inicial de los datos.
 
 En este apartado se plantean una serie de preguntas surgidas a raíz de la exploración general llevada a cabo tras la importación de los datos, realizada anteriormente.

@@ -544,28 +544,157 @@ En este apartado se plantean una serie de preguntas surgidas a raíz de la explo
 
 En realción con los datos de la **frecuencia cardíaca fetal**, proponemos:
 
-1. ¿Existe alguna relación entre la frecuencia cardíaca fetal y la materna?
-Según lo observado en los datos, se intuye una relación entre ambas frecuencias. Se aprecia que en la medida en la que la frecuencia cardíaca materna aumenta, lo hace también la del feto. Sucede lo mismo cuando la frecuencia cardíaca materna disminuye.
+### Pregunta 1
+
+¿Existe alguna relación entre la frecuencia cardíaca fetal y la materna?
+
+Según lo observado en los datos, se intuye una relación entre ambas
+frecuencias. Se aprecia que en la medida en la que la frecuencia
+cardíaca materna aumenta, lo hace también la del feto. Sucede lo mismo
+cuando la frecuencia cardíaca materna disminuye.
+
+Vamos a hacer una representación visual de ambas frecuancias cardíacas
+para comprobar que sí tienen una correlación:
+
+```{r}
+# Unimos los dataframes 
+df_all1 <- rbind(df_HR1, df_HR2, df_MHR)
+
+# Convertimos los datos
+df_all_melt1 <- melt(df_all1, id.vars = c("x", "channel"))
+
+# Creamos la gráfica 
+ggplot(df_all_melt1, aes(x = x, y = value, color = channel)) +
+  geom_line(alpha = 0.75, size = 0.75) +
+  labs(title = "Comparación frecuencias cardíacas", x = "Tiempo", y = "Pulsaciones")
+
+```
+
+### Pregunta 2
+
+¿Existe alguna relación entre la saturación de oxígeno materno y la
+frecencia cardíaca fetal?
+
+En las madres que presentan una saturación de oxígeno menor, la
+frecuencia cardíaca fetal es levemente superior que en las madres con
+una saturación de oxígeno un poco más elevada.
+
+```{r}
+# Unimos los dataframes 
+df_all2 <- rbind(df_HR1, df_HR2, df_SPO2)
+
+# Convertimos los datos 
+df_all_melt2 <- melt(df_all2, id.vars = c("x", "channel"))
+
+# Creamos la gráfica 
+ggplot(df_all_melt2, aes(x = x, y = value, color = channel)) +
+  geom_line(alpha = 0.75, size = 0.75) +
+  labs(title = "Relación saturación oxígeno materno y frecuencia cardíaca fetal", x = "Tiempo", y = "Valores")
+```
+
+Con respecto a la relación entre las **contracciones uterinas** y la
+**frecuencia cardíaca fetal**, proponemos:
+
+### Pregunta 3
+
+¿Hay alguna relación entre la frecuencia y duración de las contracciones
+uterinas y la frecuencia cardíaca fetal?
+
+Atendiendo a lo observado en los datos, podemos intuir que la frecuencia
+(y duración) de las contracciones uterinas tiene una relación con la
+frecuencia cardíaca fetal. Si la frecuencia de las contracciones
+uterinas es intensa se produce una disminución en la frecuencia cardíaca
+fetal.
+
+```{r}
+# Unimos los dataframes 
+df_all3 <- rbind(df_HR1, df_HR2, df_MHR, df_TOCO)
+
+# Convertimos los datos 
+df_all_melt3 <- melt(df_all3, id.vars = c("x", "channel"))
+
+# Creamos la gráfica 
+ggplot(df_all_melt3, aes(x = x, y = value, color = channel)) +
+  geom_line(alpha = 0.75, size = 0.75) +
+  labs(title = "Relación frecuencias y actividad uterina", x = "Tiempo", y = "Valores")
+```
+
+### Pregunta 4
+
+¿Hay alguna correlación entre la frecuencia cardíaca fetal y la
+intensidad de las contracciones uterinas durante el parto?
+
+Al igual que en la pregunta plateada anteriormente y según los datos
+observados, se sospecha de una relación entre la intensidad de las
+contracciones uterinas y la frecuencia cardíaca fetal: si las primeras
+son muy intensas los valores de la frecuencia cardíaca fetal disminuyen.
+
+```{r}
+# Unimos los dataframes 
+df_all4 <- rbind(df_MHR, df_TOCO)
+
+# Convertimos los datos 
+df_all_melt4 <- melt(df_all4, id.vars = c("x", "channel"))
+
+# Creamos la gráfica 
+ggplot(df_all_melt4, aes(x = x, y = value, color = channel)) +
+  geom_line(alpha = 0.75, size = 0.75) +
+  labs(title = "Comparación frecuencia cardíaca fetal y la actividad uterina", x = "Tiempo", y = "Valores")
+```
+
+En lo referido a la relación entre la **frecuencia cardíaca fetal** y
+las **presiones sistólica, diastólica** y la **frecuencia cardíaca
+materna**, proponemos:
+
+### Pregunta 5
+
+¿Cuál es el intervalo normal de frecuencia cardíaca fetal?¿Y de
+frecuencia cardíaca materna?
+
+La frecuencia cardíaca fetal considerada normal se encuentra entre los
+110 y 160 latidos por minuto. Y la frecuencia cardíaca materna como
+norma general, ronda entre los 85-90 latidos por minuto
+
+```{r}
+# Creamos los dataframes con las medianas
+median_HR1 <- median(df_HR1$y)
+median_HR2 <- median(df_HR2$y)
+median_MHR <- median(df_MHR$y)
+
+# Creamos el dataframe conjunto
+df_medians <- data.frame(dataframe = c("df_HR1", "df_HR2", "df_MHR", "Promedio HR", "Promedio MHR"),
+                         median = c(median_HR1, median_HR2, median_MHR, 135, 90))
 
 
-2. ¿Existe alguna relación entre la saturación de oxígeno materno y la frecencia cardíaca fetal?
-En las madres que presentan una saturación de oxígeno menor, la frecuencia cardíaca fetal es levemente superior que en las madres con una saturación de oxígeno un poco más elevada.
 
-Con respecto a la relación entre las **contracciones uterinas** y la **frecuencia cardíaca fetal**, proponemos:
+# Creamos el gráfico de barras
+ggplot(df_medians, aes(x = dataframe, y = median, fill = dataframe)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("#E41A1C", "#FF7F00", "#4DAF4A", "#377EB8", "#984EA3")) +
+  labs(title = "Mediana de la frecuencia cardíaca fetal y materna", x = "Dataframes", y = "Mediana") +
+  geom_hline(yintercept = seq(0, 150, 10), linetype = "dotted", color = "gray", size = 0.5)
 
-3. ¿Hay alguna relación entre la frecuencia y duración de las contracciones uterinas y la frecuencia cardíaca fetal?
-Atendiendo a lo observado en los datos, podemos intuir que la frecuencia (y duración) de las contracciones uterinas tiene una relación con la frecuencia cardíaca fetal. Si la frecuencia de las contracciones uterinas es intensa se produce una disminución en la frecuencia cardíaca fetal.
+```
 
-4. ¿Hay alguna correlación entre la frecuencia cardíaca fetal y la intensidad de las contracciones uterinas durante el parto?
-Al igual que en la pregunta plateada anteriormente y según los datos observados, se sospecha de una relación entre la intensidad de las contracciones uterinas y la frecuencia cardíaca fetal: si las primeras son muy intensas los valores de la frecuencia cardíaca fetal disminuyen.
+### Pregunta 6
 
-En lo referido a la relación entre la **frecuencia cardíaca fetal** y las **presiones sistólica, diastólica** y la **frecuencia cardíaca materna**, proponemos:
+¿Existe alguna relación entre la frecuencia cardíaca materna y la
+presión sistólica o diastólica durante el parto?
 
-5. ¿Hay alguna diferencia en la frecuencia cardíaca fetal entre mujeres con diferentes niveles de presión arterial o frecuencia cardíaca materna durante el parto?
-Se intuye, según lo observado, que unos valores de mayor presión sanguínea materna pueden provocar una disminución de la frecuencia cardíaca fetal. Cuando los primeros son elevados la frecuencia cardíaca fetal es menor.
+Según lo observado, y tal y como se ha sugerido en la pregunta 5, se
+intuye la existencia de una relación entre ambas frecuencias. Unos
+valores de mayor presión sanguínea materna pueden provocar una
+disminución de la frecuencia cardíaca fetal.
 
-6. ¿Cuál es el intervalo normal de frecuencia cardíaca fetal?¿Y de frecuencia cardíaca materna?
-La frecuencia cardíaca fetal considerada normal se encuentra entre los 110 y 160 latidos por minuto. Y la frecuencia cardíaca materna como norma general, ronda entre los 85-90 latidos por minuto
+```{r}
+# Unimos los dataframes 
+df_all6 <- rbind(df_MHR, df_Ps, df_Pd)
 
-7. ¿Existe alguna relación entre la frecuencia cardíaca fetal y la presión sistólica o diastólica de la madre durante el parto?
-Según lo observado, y tal y como se ha sugerido en la pregunta 5, se intuye la existencia de una relación entre ambas frecuencias. Unos valores de mayor presión sanguínea materna pueden provocar una disminución de la frecuencia cardíaca fetal.
+# Convertimos los datos 
+df_all_melt6 <- melt(df_all6, id.vars = c("x", "channel"))
+
+# Creamos la gráfica 
+ggplot(df_all_melt6, aes(x = x, y = value, color = channel)) +
+  geom_line(alpha = 0.75, size = 0.75) +
+  labs(title = "Comparación frecuencia cardíaca fetal y la actividad uterina", x = "Tiempo", y = "Valores")
+```

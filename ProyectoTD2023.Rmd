@@ -454,6 +454,9 @@ cabecera_fa  <- lectura1(v1[1])
 cabecera_fd <- lectura2(v1[2], size = 1,signed = F)
 fichero_a <- lectura2(v1[3], size = 2,signed = T)
 fichero_d <- lectura2(v1[4], size = 1,signed = F)
+
+print(paste("Se han encontrado valores perdidos en la cabecera? ", all(is.na(fichero_a))))
+print(paste("Se han encontrado valores perdidos en los datos? ", all(is.na(fichero_d))))
   
 visualizar1(fichero_a, Fm)
 visualizar2(fichero_d)
@@ -467,6 +470,9 @@ cabecera_fa  <- lectura1(v2[1])
 cabecera_fd <- lectura2(v2[2], size = 1,signed = F)
 fichero_a <- lectura2(v2[3], size = 2,signed = T)
 fichero_d <- lectura2(v2[4], size = 1,signed = F)
+
+print(paste("Se han encontrado valores perdidos en la cabecera? ", all(is.na(fichero_a))))
+print(paste("Se han encontrado valores perdidos en los datos? ", all(is.na(fichero_d))))
   
 visualizar1(fichero_a, Fm)
 visualizar2(fichero_d)
@@ -478,6 +484,9 @@ cabecera_fa  <- lectura1(v3[1])
 cabecera_fd <- lectura2(v3[2], size = 1,signed = F)
 fichero_a <- lectura2(v3[3], size = 2,signed = T)
 fichero_d <- lectura2(v3[4], size = 1,signed = F)
+
+print(paste("Se han encontrado valores perdidos en la cabecera? ", all(is.na(fichero_a))))
+print(paste("Se han encontrado valores perdidos en los datos? ", all(is.na(fichero_d))))
   
 visualizar1(fichero_a, Fm)
 visualizar2(fichero_d)
@@ -491,6 +500,9 @@ cabecera_fa  <- lectura1(v4[1])
 cabecera_fd <- lectura2(v4[2], size = 1,signed = F)
 fichero_a <- lectura2(v4[3], size = 2,signed = T)
 fichero_d <- lectura2(v4[4], size = 1,signed = F)
+
+print(paste("Se han encontrado valores perdidos en la cabecera? ", all(is.na(fichero_a))))
+print(paste("Se han encontrado valores perdidos en los datos? ", all(is.na(fichero_d))))
   
 visualizar1(fichero_a, Fm)
 visualizar2(fichero_d)
@@ -504,6 +516,9 @@ cabecera_fa  <- lectura1(v5[1])
 cabecera_fd <- lectura2(v5[2], size = 1,signed = F)
 fichero_a <- lectura2(v5[3], size = 2,signed = T)
 fichero_d <- lectura2(v5[4], size = 1,signed = F)
+
+print(paste("Se han encontrado valores perdidos en la cabecera? ", all(is.na(fichero_a))))
+print(paste("Se han encontrado valores perdidos en los datos? ", all(is.na(fichero_d))))
   
 visualizar1(fichero_a, Fm)
 visualizar2(fichero_d)
@@ -515,6 +530,9 @@ cabecera_fa  <- lectura1(v6[1])
 cabecera_fd <- lectura2(v6[2], size = 1,signed = F)
 fichero_a <- lectura2(v6[3], size = 2,signed = T)
 fichero_d <- lectura2(v6[4], size = 1,signed = F)
+
+print(paste("Se han encontrado valores perdidos en la cabecera? ", all(is.na(fichero_a))))
+print(paste("Se han encontrado valores perdidos en los datos? ", all(is.na(fichero_d))))
   
 visualizar1(fichero_a, Fm)
 visualizar2(fichero_d)

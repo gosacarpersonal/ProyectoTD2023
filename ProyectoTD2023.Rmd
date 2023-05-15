@@ -730,11 +730,12 @@ En cambio, en lo referido a los valores de la frecuencia cardíaca fetal,
 su promedio se queda en un valor de 135 latidos por minuto, quedándose 
 sus valores ligeramente superiores a 140 latidos por minuto.
 
-
-
-
-
-
+Es remarcable, además, la gran superioridad de los valores de la frecuencia
+cardíaca fetal respecto de la materna. Esto, según profesionales de la salud,
+no tiene una relación directa, ya que durante el ejercicio o situaciones de 
+estrés, la frecuencia cardíaca materna puede aumentar, superando temporalmente 
+la frecuencia cardíaca fetal. Esto es parte de la respuesta normal del cuerpo 
+materno ante el esfuerzo físico o emocional. 
 
 ### Pregunta 6
 

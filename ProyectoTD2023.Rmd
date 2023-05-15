@@ -647,14 +647,15 @@ mientras que para el mismo tiempo, la frecuencia cardíaca fetal sufre una
 'caída' en los valores, aunque de menor grado. Por tanto, podemos afirmar, tal
 y como ya apuntábamos, que existe una relación directa entre la actividad 
 uterina de la madre y la frecuencia cardíaca fetal.
+
 Los profesionales de la salud, además, justifican este cambio atribuyéndolo a 
 los cambios de suministración de oxígeno debido a la compresión de los vasos 
-sanguíneos uterinos experimentados durante una contracción uterina. Esto,
+sanguíneos uterinos experimentados durante una contracción uterina. Esto
 provocaría una disminución transitoria en la frecuencia cardíaca fetal.
 
 ### Pregunta 4
 
-¿Hay alguna correlación entre la frecuencia cardíaca fetal y la
+¿Hay alguna correlación entre la frecuencia cardíaca materna y la
 intensidad de las contracciones uterinas durante el parto?
 
 Al igual que en la pregunta plateada anteriormente y según los datos
@@ -672,8 +673,22 @@ df_all_melt4 <- melt(df_all4, id.vars = c("x", "channel"))
 # Creamos la gráfica 
 ggplot(df_all_melt4, aes(x = x, y = value, color = channel)) +
   geom_line(alpha = 0.75, size = 0.75) +
-  labs(title = "Comparación frecuencia cardíaca fetal y la actividad uterina", x = "Tiempo", y = "Valores")
+  labs(title = "Comparación frecuencia cardíaca materna y la actividad uterina", x = "Tiempo", y = "Valores")
 ```
+Observando los valores de las variables graficadas, no podemos establecer una 
+relación directa entre los cambios en la actividad uterina y la frecuencia 
+cardíaca materna, en contra de lo que se sospechaba en un principio. Tal y como
+podemos ver en la gráfica, mientras los valores de la actividad uterina (en azul)
+se muestran muy oscilantes y con cambios muy acusados, para el mismo tiempo la 
+frecuencia cardíaca materna se mantiene relativamente constante.
+
+Los sanitarios argumentan que si bien las contracciones uterinas pueden causar 
+cierto estrés fisiológico en el cuerpo de la madre, no hay una correlación 
+directa establecida entre la intensidad de las contracciones y la frecuencia 
+cardíaca materna. Cada mujer puede experimentar y responder de manera diferente 
+a las contracciones y esto no siempre se reflejará en cambios significativos en 
+la frecuencia cardíaca.
+
 
 En lo referido a la relación entre la **frecuencia cardíaca fetal** y
 las **presiones sistólica, diastólica** y la **frecuencia cardíaca

@@ -757,5 +757,20 @@ df_all_melt6 <- melt(df_all6, id.vars = c("x", "channel"))
 # Creamos la gráfica 
 ggplot(df_all_melt6, aes(x = x, y = value, color = channel)) +
   geom_line(alpha = 0.75, size = 0.75) +
-  labs(title = "Comparación frecuencia cardíaca fetal y la actividad uterina", x = "Tiempo", y = "Valores")
+  labs(title = "Comparación frecuencia cardíaca materna y las presiones sanguíneas", x = "Tiempo", y = "Valores")
 ```
+A pesar de que durante el registro de los valores de la frecuencia cardíaca
+materna los valores de la presión sistólica se mantienen elevados, no podemos
+afirmar que exista una relación directa entre estas dos variables.
+
+La justificación es puramente médica. Según los profesionales de la salud, las 
+contracciones uterinas y el esfuerzo físico asociado al parto pueden desencadenar 
+respuestas fisiológicas en el cuerpo de la madre. Esto puede resultar en un aumento 
+transitorio de la frecuencia cardíaca y la presión arterial sistólica. Estos cambios 
+pueden ser una respuesta normal y adaptativa del cuerpo materno al esfuerzo y a 
+la redistribución del flujo sanguíneo durante el parto. En ese caso, cada mujer 
+aumentos más significativos en la frecuencia cardíaca, mientras que otras pueden 
+experimentar aumentos más notables en la presión arterial sistólica. Esto puede 
+depender de varios factores individuales, como la condición cardiovascular previa, 
+el nivel de estrés, el dolor percibido y otros factores relacionados con la salud 
+materna.

@@ -573,7 +573,12 @@ las frecuencias fetal y materna podemos decir que lo intuido anteriormente
 queda confirmado. Existe una relación directa entre la frecuencia cardíaca
 materna y la fetal, siendo esta última considerablemente mayor a la primera. 
 Esta gran diferencia de frecuencias, es, según los profesionales de la salud, 
-lo habitual en los embarazos que disfrutan de buena salud.
+lo habitual en los embarazos que disfrutan de buena salud. Se observa, además, 
+que cambios en la frecuencia cardíaca materna afectan directamente a la del feto.
+Aumentos en la frecuencia de la madre repercuten en la del feto, tendiendo un
+aumento directamente proporcional en la frecuencia de este último. Análogamente,
+reportamos el mismo efecto cuando se trata de disminuciones en la frecuencia 
+materna.
 
 ### Pregunta 2
 

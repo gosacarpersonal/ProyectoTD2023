@@ -637,6 +637,20 @@ ggplot(df_all_melt3, aes(x = x, y = value, color = channel)) +
   geom_line(alpha = 0.75, size = 0.75) +
   labs(title = "Relación frecuencias y actividad uterina", x = "Tiempo", y = "Valores")
 ```
+Según lo graficado , podemos observar una clara relación entre la actividad
+uterina de la madre y la frecuencia cardíaca fetal. Este último, tal y como
+se había apuntado al revisar los valores de cada uno de los parámetros,
+disminuye acusadamente cuando hay una gran actividad uterina, entendida como
+contracción. Tan solo hay que apuntar en la gráfica a la primera gran variación
+de los valores registrada: se observa un acusado aumento para este parámetro,
+mientras que para el mismo tiempo, la frecuencia cardíaca fetal sufre una
+'caída' en los valores, aunque de menor grado. Por tanto, podemos afirmar, tal
+y como ya apuntábamos, que existe una relación directa entre la actividad 
+uterina de la madre y la frecuencia cardíaca fetal.
+Los profesionales de la salud, además, justifican este cambio atribuyéndolo a 
+los cambios de suministración de oxígeno debido a la compresión de los vasos 
+sanguíneos uterinos experimentados durante una contracción uterina. Esto,
+provocaría una disminución transitoria en la frecuencia cardíaca fetal.
 
 ### Pregunta 4
 

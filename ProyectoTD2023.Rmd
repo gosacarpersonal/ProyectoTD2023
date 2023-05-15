@@ -605,7 +605,10 @@ Graficando los datos, mostramos la relación a la que se hacía referencia en
 la pregunta de este apartado: tenemos que, tal y como se puede observar,
 la frecuencia cardíaca fetal durante el período de tiempo en el que la madre
 registra una saturación de oxígeno menor, los datos de la frecuencia cardíaca 
-fetal oscila a la baja en un rango más amplio y de manera inestable.
+fetal oscila a la baja en un rango más amplio y de manera inestable. En cambio,
+cuando se registran datos de la saturación de oxígeno materno, los datos de la
+frecuencia cardíaca fetal empiezan a regularse en un rango menor y de manera
+más estable, tendiendo sus valores a la baja.
 
 
 Con respecto a la relación entre las **contracciones uterinas** y la

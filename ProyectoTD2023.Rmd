@@ -567,8 +567,13 @@ df_all_melt1 <- melt(df_all1, id.vars = c("x", "channel"))
 ggplot(df_all_melt1, aes(x = x, y = value, color = channel)) +
   geom_line(alpha = 0.75, size = 0.75) +
   labs(title = "Comparación frecuencias cardíacas", x = "Tiempo", y = "Pulsaciones")
-
 ```
+Tal y como podemos observar en la gráfica resultante, con la comparación de 
+las frecuencias fetal y materna podemos decir que lo intuido anteriormente
+queda confirmado. Existe una relación directa entre la frecuencia cardíaca
+materna y la fetal, siendo esta última considerablemente mayor a la primera. 
+Esta gran diferencia de frecuencias, es, según los profesionales de la salud, 
+lo habitual en los embarazos que disfrutan de buena salud.
 
 ### Pregunta 2
 

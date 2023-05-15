@@ -713,16 +713,28 @@ median_MHR <- median(df_MHR$y)
 df_medians <- data.frame(dataframe = c("df_HR1", "df_HR2", "df_MHR", "Promedio HR", "Promedio MHR"),
                          median = c(median_HR1, median_HR2, median_MHR, 135, 90))
 
-
-
 # Creamos el gráfico de barras
 ggplot(df_medians, aes(x = dataframe, y = median, fill = dataframe)) +
   geom_bar(stat = "identity") +
   scale_fill_manual(values = c("#E41A1C", "#FF7F00", "#4DAF4A", "#377EB8", "#984EA3")) +
   labs(title = "Mediana de la frecuencia cardíaca fetal y materna", x = "Dataframes", y = "Mediana") +
   geom_hline(yintercept = seq(0, 150, 10), linetype = "dotted", color = "gray", size = 0.5)
-
 ```
+En el gráfico que se muestra, observamos las medianas de cada uno de los
+conjuntos de datos referidos a la frecuencia cardíaca fetal y la materna.
+En el caso de esta última, y tal y como ya se intuía, la media de los
+valores registrados para la frecuencia cardíaca materna se mantienen en 
+en el rango de los 85 y 110 latidos por minuto, quedándose su promedio en
+un valor de 90 latidos por minuto.
+En cambio, en lo referido a los valores de la frecuencia cardíaca fetal, 
+su promedio se queda en un valor de 135 latidos por minuto, quedándose 
+sus valores ligeramente superiores a 140 latidos por minuto.
+
+
+
+
+
+
 
 ### Pregunta 6
 

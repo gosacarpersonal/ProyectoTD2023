@@ -601,6 +601,12 @@ ggplot(df_all_melt2, aes(x = x, y = value, color = channel)) +
   geom_line(alpha = 0.75, size = 0.75) +
   labs(title = "Relación saturación oxígeno materno y frecuencia cardíaca fetal", x = "Tiempo", y = "Valores")
 ```
+Graficando los datos, mostramos la relación a la que se hacía referencia en
+la pregunta de este apartado: tenemos que, tal y como se puede observar,
+la frecuencia cardíaca fetal durante el período de tiempo en el que la madre
+registra una saturación de oxígeno menor, los datos de la frecuencia cardíaca 
+fetal oscila a la baja en un rango más amplio y de manera inestable.
+
 
 Con respecto a la relación entre las **contracciones uterinas** y la
 **frecuencia cardíaca fetal**, proponemos:
